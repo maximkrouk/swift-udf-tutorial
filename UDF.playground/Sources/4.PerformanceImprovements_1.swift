@@ -31,7 +31,8 @@ public enum PerformanceImprovements_1 {
         }
       }
       
-      // Lets copy our current state and update it only after all of our actions chain is processed
+      // Lets copy our current state and update it only after
+      // all of our actions chain is processed
       var currentState = state
       
       // Pass first actions to our processor

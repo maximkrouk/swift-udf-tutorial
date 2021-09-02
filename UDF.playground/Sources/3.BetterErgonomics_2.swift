@@ -28,7 +28,7 @@ public enum BetterErgomonics_2 {
       /// Now our reducer can return new actions, that we should process
       let actions = self.reducer(&_state.value, action)
       
-      /// We call send method recursively to handle all of the actions in the action chain
+      /// We call send method recursively to handle all actions in the action chain
       actions.forEach(self.send)
     }
   }
@@ -51,9 +51,9 @@ public enum BetterErgomonics_2 {
     case doNothing
   }
   
-  /// Now we have to always return new actions from our reducer,
+  /// Now we always have to return new actions from our reducer,
   /// return [] if you don't need to process anything
-  /// But now we able to chain actions and actual value modification will happen
+  /// But now we are able to chain actions and actual value modification will happen
   /// only when `.setValue` action is sent
   public static let counterReducer: Reducer<CounterState, CounterAction> = { state, action in
     switch action {
@@ -106,7 +106,8 @@ extension Array {
   /// Array(0) + Array.empty == Array(0)
   /// Array(1, 2) + Array(3, 4) == Array(1,2,3,4)
   ///
-  /// // Other types can be Monoids too if they implement some concatenation and a base element
+  /// // Other types can be Monoids too if they implement
+  /// // some concatenation and a base element
   /// String("Hello, World!") + String.empty == String("Hello, World!")
   /// String("Hello, ") + String("World!") == String("Hello, World!")
   /// ```

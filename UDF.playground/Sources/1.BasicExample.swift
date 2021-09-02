@@ -7,14 +7,14 @@ public enum BasicExample {
   /// Basically it's the component that defines system's logic
   public typealias Reducer<State, Action> = (State, Action) -> State
   
-  /// Store is an object that holds to a state and a reducer, it is a representation of our system, you can retrieve state from the store
-  /// and send actions to modify store's state with the store's reducer
+  /// Store is an object that holds a state and a reducer, it is a representation of our system,
+  /// you can retrieve state from a store and send actions to modify store's state with the store's reducer
   public class Store<State, Action> {
     /// State cannot be modified from the outside, the only way to modify the state is to pass an action to the store
     private(set) public var state: State
     
     /// Reducer is a captured function for processing actions passed to the store
-    /// this field is private, there is a Store.send method for the more convenient action sending
+    /// this field is private. There is a Store.send method for the more convenient action sending
     private let reducer: Reducer<State, Action>
     
     /// Initialize the system with initial state and a reducer
@@ -51,7 +51,8 @@ public enum BasicExample {
     case random
   }
   
-  // Define implementation for module logic by declaring a reducer, that handles actions as you want
+  // Define implementation for module logic by declaring a reducer,
+  // that handles actions as you want
   public static let counterReducer: Reducer<CounterState, CounterAction> = { state, action in
     switch action {
     case .increment:
@@ -68,9 +69,11 @@ public enum BasicExample {
     }
   }
   
-  // NOTE: You already defined your system's behavior, even without holding to any actual data
-  // To initialize your system you should create a store, but store is just a container, so
-  // you'll be able to pass any initial state and any reducer to it
+  // NOTE: You already defined your system's behavior,
+  // even without holding to any actual data.
+  // To initialize your system you should create a store,
+  // but since store is just a container, you'll be able to
+  // pass any initial state and any reducer to it
 }
 
 // Basic scheme of the system

@@ -63,7 +63,7 @@ public enum BetterErgomonics_1 {
     switch action {
     case .increment:
       // We don't have to create a new state from scratch
-      // New state is created by inout parameter, based on modification
+      // New state is created by inout parameter, and based on modification
       // all of unchanged fields will remain the same
       state.value += 1
       

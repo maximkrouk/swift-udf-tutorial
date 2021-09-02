@@ -6,8 +6,10 @@ public enum PerformanceImprovements_2 {
   
   public typealias Reducer<State, Action> = (inout State, Action) -> [Action]
   
-  /// We can make some optimizations by creating a publisher that will filter all state update events if the actual state wasn't changed
-  /// A publisher of store state will take upstream publisher and a equality function to determine if new state is a duplicate
+  /// We can make some optimizations by creating a publisher that will filter
+  /// all state update events if the actual state wasn't changed.
+  /// A publisher of store state will take upstream publisher and an equality function
+  /// to determine if new state is a duplicate.
   /// See the very bottom of the file to see new `publisher` property declarations
   @dynamicMemberLookup
   public struct StorePublisher<State>: Publisher {
@@ -40,7 +42,8 @@ public enum PerformanceImprovements_2 {
     ///   }
     /// }
     ///
-    /// publisher.state.substate.value.sink { print($0) } // Here you will get values only if the actual value changed
+    /// // Here you will get values only if the actual value changed
+    /// publisher.state.substate.value.sink { print($0) }
     /// ```
     public subscript<LocalState>(
       dynamicMember keyPath: KeyPath<State, LocalState>
